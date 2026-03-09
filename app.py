@@ -10,7 +10,7 @@ scaler = joblib.load("scaler.pkl")
 st.set_page_config(page_title="Dropout Risk Prediction", layout="centered")
 
 # Title
-st.title("🎓 Early Risk & Dropout Prediction System")
+st.title("Early Risk & Dropout Prediction System")
 
 st.write("""
 This application predicts **student dropout risk** using
@@ -35,12 +35,12 @@ if st.sidebar.button("Predict Dropout Risk"):
     prediction = model.predict(student_scaled)[0]
     probability = model.predict_proba(student_scaled)[0][1]
 
-    st.subheader("📊 Prediction Result")
+    st.subheader("Prediction Result")
 
     if prediction == 1:
-        st.error("⚠️ High Risk of Dropout")
+        st.error("High Risk of Dropout")
     else:
-        st.success("✅ Low Risk of Dropout")
+        st.success("Low Risk of Dropout")
 
     st.write(f"**Risk Probability:** {round(probability, 2)}")
 
